@@ -40,12 +40,10 @@
   .lp-ending .footer-top { padding-bottom: 22px; }
   .lp-ending .footer-bottom { padding-top: 16px; padding-bottom: 20px; }
   .lp-ending .truck-lane { display: block; height: 78px; margin-left: calc(-1 * var(--pad)); margin-right: calc(-1 * var(--pad)); }
-  .lp-ending .truck-runner { width: 200px; bottom: 4px; animation: shinrou-mobile-drive 8s linear infinite; }
+  .lp-ending .truck-runner { width: 200px; bottom: 4px; left: 100%; transform: translateX(0); animation: shinrou-mobile-drive 8s linear infinite; animation-play-state: running; }
   @keyframes shinrou-mobile-drive {
     0% { transform: translateX(0); }
     75%, 100% { transform: translateX(calc(-100vw - 220px)); }
   }
 }
-@media (max-width: 760px) and (orientation: portrait) and (prefers-reduced-motion: reduce) {
-  .lp-ending .truck-runner { animation: none; left: 50%; transform: translateX(-50%); }
-}
+
