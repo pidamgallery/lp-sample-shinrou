@@ -1,0 +1,51 @@
+/* Phone portrait only: leave desktop and landscape tablet layouts unchanged. */
+@media (max-width: 760px) and (orientation: portrait) {
+  .hero { height: auto; min-height: 0; display: block; padding-top: 18px; }
+  .hero .hero-top { padding-bottom: 24px; }
+  .hero .hero-image { height: auto; display: block; align-self: auto; }
+  .hero .hero-image img { height: auto; max-height: none; aspect-ratio: 1774 / 505; }
+  .hero .hero-aside > p:nth-child(2) { font-size: 13px; line-height: 1.85; }
+  .hero .text-link { font-size: 13px; margin-top: 10px; }
+  .hero .hero-bottom { padding-top: 12px; padding-bottom: 18px; }
+
+  #about.section, #services.section, #strengths.section { padding-top: 36px; padding-bottom: 36px; }
+  #about .section-label, #services .section-label, #strengths .section-label { margin-bottom: 24px; }
+  #services .section-heading, #strengths .section-heading { margin-bottom: 22px; }
+  #services .section-heading > p, #strengths .section-heading > p { margin-top: 14px; font-size: 13px; line-height: 1.85; }
+  #services .service-list { gap: 14px; }
+  #services .service-row { display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: center; gap: 14px; padding: 20px 18px; height: auto; }
+  #services .service-row::before { left: 18px; }
+  #services .service-number { top: 10px; right: 14px; font-size: 15px; }
+  #services .service-visual { grid-column: 1; grid-row: 1; width: 64px; height: 56px; margin: 0; }
+  #services .service-visual svg { width: 60px; height: 50px; }
+  #services .service-name { grid-column: 2; grid-row: 1; width: auto; margin: 6px 0 0; }
+  #services .service-name > span { font-size: 9px; letter-spacing: .04em; overflow-wrap: anywhere; }
+  #services .service-name h3 { font-size: 21px; margin-top: 3px; line-height: 1.5; }
+  #services .service-row p { grid-column: 1 / -1; grid-row: 2; font-size: 14px; line-height: 1.85; }
+  #services .service-note { margin-top: 16px; }
+
+  #strengths .commitments { gap: 14px; }
+  #strengths .commitments article { padding: 18px; grid-template-columns: 46px minmax(0, 1fr); gap: 0 12px; }
+  #strengths .commitments article::before { left: 18px; }
+  #strengths .commit-index { margin-bottom: 12px; }
+  #strengths .commitments svg { grid-column: 1; grid-row: 2; width: 46px; height: 46px; padding: 7px; margin: 0; }
+  #strengths .commitments h3 { grid-column: 2; grid-row: 2; align-self: center; font-size: 17px; line-height: 1.6; margin: 0; }
+  #strengths .commitments p { grid-column: 1 / -1; grid-row: 3; margin-top: 12px; font-size: 14px; line-height: 1.85; }
+
+  .fleet { padding-top: 36px; padding-bottom: 36px; }
+  .fleet-inner { gap: 24px; }
+  .lp-ending #contact { padding-top: 36px; padding-bottom: 36px; gap: 24px; }
+  .lp-ending .contact-word { position: static; font-size: 48px; margin-top: 16px; }
+  .lp-ending footer { padding-top: 28px; padding-bottom: 0; }
+  .lp-ending .footer-top { padding-bottom: 22px; }
+  .lp-ending .footer-bottom { padding-top: 16px; padding-bottom: 20px; }
+  .lp-ending .truck-lane { display: block; height: 78px; margin-left: calc(-1 * var(--pad)); margin-right: calc(-1 * var(--pad)); }
+  .lp-ending .truck-runner { width: 200px; bottom: 4px; animation: shinrou-mobile-drive 8s linear infinite; }
+  @keyframes shinrou-mobile-drive {
+    0% { transform: translateX(0); }
+    75%, 100% { transform: translateX(calc(-100vw - 220px)); }
+  }
+}
+@media (max-width: 760px) and (orientation: portrait) and (prefers-reduced-motion: reduce) {
+  .lp-ending .truck-runner { animation: none; left: 50%; transform: translateX(-50%); }
+}

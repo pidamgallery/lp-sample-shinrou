@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="人と想いを、未来へつなぐ。架空の運送会社・神狼運輸のコンセプトサイト。Pidam GalleryによるWebデザイン制作サンプルです。">
+  <meta name="theme-color" content="#081c35">
+  <title>神狼運輸 | SHINROU TRANSPORT — 人と想いを、未来へつなぐ</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="refinements.css">
+  <style id="opening-viewport-layout">
+/* Opening screen: reserve the image area explicitly, without JS size calculations. */
+:root { --opening-header: 72px; }
+.header { height: var(--opening-header); }
+.header .nav-contact { padding-top: 12px; padding-bottom: 12px; }
+.hero {
+  height: calc(100vh - var(--opening-header));
+  height: calc(100svh - var(--opening-header));
+  min-height: 0;
+  padding: clamp(12px, 2.5vh, 24px) 0 0;
+  display: grid;
+  grid-template-rows: max-content minmax(0, 1fr) max-content;
+  overflow: visible;
+}
+.hero .hero-top {
+  width: 100%; min-width: 0; margin: 0 auto;
+  padding-top: 0; padding-bottom: clamp(12px, 2.5vh, 24px);
+  gap: 28px;
+}
+.hero h1 { font-size: clamp(34px, 6.5vh, 64px); line-height: 1.22; margin-top: 12px; }
+.hero .hero-aside { padding: 0; min-width: 250px; }
+.hero .hero-aside > p:first-child { font-size: 14px; margin-bottom: 6px; }
+.hero .hero-aside > p:nth-child(2) { font-size: 12px; line-height: 1.75; }
+.hero .text-link { padding: 8px 0 6px; margin-top: 6px; }
+.hero .hero-image {
+  width: calc(100% - 48px); max-width: 1700px;
+  height: 100%; min-height: 0; min-width: 0;
+  margin: 0 auto; align-self: stretch;
+  display: grid; grid-template-rows: minmax(0, 1fr) 30px;
+}
+.hero .hero-image img {
+  display: block; width: 100%; height: 100%; min-width: 0; min-height: 0;
+  max-width: 100%; max-height: 100%; aspect-ratio: auto;
+  object-fit: contain; object-position: center bottom;
+}
+.hero .hero-image figcaption {
+  min-width: 0; height: 30px; padding: 0 17px;
+  align-items: center; font-size: 9px;
+}
+.hero .hero-bottom { width: 100%; margin: 0; padding: 10px var(--pad) 12px; }
+@media (max-height: 620px) and (min-width: 761px) {
+  :root { --opening-header: 62px; }
+  .hero { padding-top: 10px; }
+  .hero h1 { font-size: clamp(28px, 6.5vh, 38px); margin-top: 8px; }
+  .hero .eyebrow { font-size: 9px; }
+  .hero .hero-top { padding-bottom: 10px; }
+  .hero .hero-aside > p:first-child { font-size: 13px; margin-bottom: 4px; }
+  .hero .hero-aside > p:nth-child(2) { line-height: 1.5; font-size: 11px; }
+  .hero .text-link { font-size: 11px; margin-top: 4px; padding-top: 5px; }
+  .hero .hero-bottom { padding-top: 8px; padding-bottom: 8px; }
+}
+@media (max-width: 760px) {
+  :root { --opening-header: 64px; }
+  .header nav { top: var(--opening-header); }
+  .hero { padding-top: 14px; }
+  .hero .hero-top { display: block; padding-bottom: 14px; }
+  .hero h1 { font-size: clamp(30px, 7vw, 45px); line-height: 1.25; margin-top: 10px; }
+  .hero .hero-aside { min-width: 0; margin-top: 14px; }
+  .hero .hero-aside > p:first-child { font-size: 13px; margin-bottom: 4px; }
+  .hero .hero-aside > p:nth-child(2) { font-size: 11px; line-height: 1.8; }
+  .hero .text-link { font-size: 11px; padding-top: 5px; margin-top: 4px; }
+  .hero .hero-image { width: calc(100% - 24px); grid-template-rows: minmax(0, 1fr) 26px; }
+  .hero .hero-image figcaption { height: 26px; font-size: 7px; padding: 0 8px; letter-spacing: .06em; }
+  .hero .hero-image figcaption span:last-child { font-size: 6px; }
+  .hero .hero-bottom { padding-top: 8px; padding-bottom: 10px; }
+}
+/* Landscape phones need a two-column introduction to keep the image visible. */
+@media (max-width: 760px) and (max-height: 480px) {
+  :root { --opening-header: 52px; }
+  .hero { padding-top: 8px; }
+  .hero .hero-top { display: flex; padding-bottom: 8px; gap: 16px; }
+  .hero h1 { font-size: 27px; margin-top: 5px; }
+  .hero .eyebrow { font-size: 7px; }
+  .hero .hero-aside { margin: 0; max-width: 45%; }
+  .hero .hero-aside > p:first-child { font-size: 11px; }
+  .hero .hero-aside > p:nth-child(2) { font-size: 10px; line-height: 1.5; }
+  .hero .text-link { font-size: 10px; }
+}
+
+</style>
+  <script src="script.js" defer></script>
+  
+<style id="section-spacing-layout">
+/* Compact only the company introduction and transport services. */
+@media (min-width: 761px) {
+  .about.section { padding-top: clamp(24px, 4svh, 40px); padding-bottom: clamp(28px, 4.5svh, 44px); }
+  .about::before { inset: 54px 0 12px; }
+  .about .section-label { padding-top: 12px; margin-bottom: 22px; }
+  .about .about-layout { gap: 8%; }
+  .about h2 { font-size: clamp(30px, 4.8svh, 40px); line-height: 1.45; }
+  .about .about-road { max-width: 340px; margin-top: 16px; }
+  .about .about-copy { padding-top: 0; padding-bottom: 0; max-width: 510px; }
+  .about .lead { font-size: 20px; line-height: 1.65; margin-bottom: 16px; }
+  .about .about-copy > p:not(.lead) { font-size: 14px; line-height: 2; margin-bottom: 14px; }
+  .about .signature { font-size: 18px; margin-top: 18px; }
+
+  .services.section { padding-top: clamp(20px, 3.5svh, 32px); padding-bottom: clamp(22px, 3.5svh, 32px); }
+  .services .section-label { padding-top: 12px; margin-bottom: 18px; }
+  .services .section-heading { margin-bottom: 16px; gap: 24px; }
+  .services h2 { font-size: clamp(28px, 4.8svh, 36px); line-height: 1.35; }
+  .services .section-heading > p { font-size: 13px; line-height: 1.8; padding-bottom: 0; }
+  .services .service-row { grid-template-columns: 26px 86px minmax(160px, 1fr) minmax(220px, 1.4fr); gap: 20px; padding: clamp(8px, 1.5svh, 12px) 0; }
+  .services .service-visual { width: 86px; height: clamp(56px, 10svh, 72px); }
+  .services .service-visual svg { width: 80px; max-height: 100%; }
+  .services .service-number { font-size: 17px; }
+  .services .service-name > span { font-size: 9px; }
+  .services .service-name h3 { font-size: 21px; margin-top: 4px; line-height: 1.5; }
+  .services .service-row p { font-size: 13px; line-height: 1.8; }
+  .services .service-note { margin-top: 12px; font-size: 10px; line-height: 1.8; }
+}
+@media (min-width: 761px) and (max-width: 1000px) {
+  .services .service-row { grid-template-columns: 22px 72px minmax(130px, 1fr) minmax(180px, 1.4fr); gap: 14px; }
+  .services .service-visual { width: 72px; }
+  .services .service-visual svg { width: 68px; }
+  .services .service-name > span { font-size: 8px; letter-spacing: .06em; }
+  .services .service-name h3 { font-size: 19px; }
+  .services .section-heading > p { font-size: 12px; }
+}
+@media (max-width: 760px) {
+  .about.section, .services.section { padding-top: 36px; padding-bottom: 36px; }
+  .about::before { inset: 70px 0 14px; }
+  .about .section-label, .services .section-label { margin-bottom: 24px; padding-top: 14px; }
+  .about .about-layout { gap: 22px; }
+  .about .about-road { margin-top: 12px; max-width: 290px; }
+  .about .about-copy > p:not(.lead) { margin-bottom: 16px; }
+  .services .section-heading { margin-bottom: 24px; }
+  .services .section-heading > p { margin-top: 14px; }
+  .services .service-row { padding-top: 18px; padding-bottom: 18px; row-gap: 12px; }
+}
+
+</style>
+<style id="services-strengths-pc-layout">
+/* Desktop only: each section can be viewed as a complete group. */
+@media (min-width: 761px) {
+  .services.section, .strengths.section {
+    padding-top: clamp(20px, 3svh, 30px);
+    padding-bottom: clamp(22px, 3.5svh, 32px);
+    height: auto;
+    min-height: 0;
+    scroll-margin-top: 0;
+  }
+  .services .section-label, .strengths .section-label {
+    padding-top: 10px;
+    margin-bottom: 16px;
+  }
+  .services .section-heading, .strengths .section-heading {
+    margin-bottom: 18px;
+    gap: 24px;
+  }
+  .services h2, .strengths h2 {
+    font-size: clamp(28px, 4.5svh, 36px);
+    line-height: 1.35;
+  }
+  .services .section-heading > p, .strengths .section-heading > p {
+    font-size: 14px;
+    line-height: 1.8;
+    padding-bottom: 0;
+  }
+  .services .service-row {
+    grid-template-columns: 24px 82px minmax(155px, .9fr) minmax(240px, 1.5fr);
+    gap: 18px;
+    padding-top: clamp(8px, 1.5svh, 12px);
+    padding-bottom: clamp(8px, 1.5svh, 12px);
+  }
+  .services .service-visual { width: 82px; height: 64px; }
+  .services .service-visual svg { width: 78px; max-height: 60px; }
+  .services .service-name > span { font-size: 9px; }
+  .services .service-name h3 { font-size: 21px; line-height: 1.5; margin-top: 4px; }
+  .services .service-row p { font-size: 14px; line-height: 1.75; }
+  .services .service-note { margin-top: 12px; font-size: 11px; line-height: 1.7; }
+
+  .strengths .commitments { gap: 20px; align-items: stretch; }
+  .strengths .commitments article { padding: 20px 22px 24px; }
+  .strengths .commitments article::before { left: 22px; }
+  .strengths .commit-index { display: block; font-size: 10px; line-height: 1.5; }
+  .strengths .commitments svg { width: 56px; height: 56px; padding: 8px; margin: 16px 0; }
+  .strengths .commitments h3 { font-size: 18px; line-height: 1.6; margin-bottom: 12px; }
+  .strengths .commitments p { font-size: 14px; line-height: 1.85; }
+}
+@media (min-width: 761px) and (max-width: 1000px) {
+  .services .service-row { grid-template-columns: 22px 68px minmax(120px, .8fr) minmax(180px, 1.5fr); gap: 12px; }
+  .services .service-visual { width: 68px; }
+  .services .service-visual svg { width: 64px; }
+  .services .service-name h3 { font-size: 19px; }
+  .services .service-name > span { font-size: 8px; letter-spacing: .05em; }
+  .strengths .commitments { gap: 14px; }
+  .strengths .commitments article { padding-left: 16px; padding-right: 16px; }
+  .strengths .commitments article::before { left: 16px; }
+  .strengths .commitments h3 { font-size: 17px; }
+}
+@media (min-width: 761px) and (max-height: 600px) {
+  .services.section, .strengths.section { padding-top: 18px; padding-bottom: 20px; }
+  .services .section-label, .strengths .section-label { margin-bottom: 12px; }
+  .services .section-heading, .strengths .section-heading { margin-bottom: 14px; }
+  .services h2, .strengths h2 { font-size: 28px; }
+  .services .service-row { padding-top: 7px; padding-bottom: 7px; }
+  .services .service-visual { height: 58px; }
+  .services .service-visual svg { max-height: 54px; }
+  .strengths .commitments article { padding-top: 16px; padding-bottom: 18px; }
+  .strengths .commitments svg { width: 50px; height: 50px; margin: 12px 0; }
+}
+
+</style>
+<style id="about-editorial-layout">
+/* About only: editorial copy on the left, reserved driving image on the right. */
+#about.section {
+  padding-top: clamp(24px, 4svh, 38px);
+  padding-bottom: clamp(28px, 4.5svh, 42px);
+  scroll-margin-top: 0;
+}
+#about::before { display: none; }
+#about .section-label { padding-top: 12px; margin-bottom: 24px; }
+#about .about-editorial-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(28px, 4vw, 64px);
+  align-items: center;
+}
+#about .about-editorial-text { min-width: 0; }
+#about h2 { font-size: clamp(28px, 2.65vw, 38px); line-height: 1.45; letter-spacing: .015em; margin: 0 0 18px; }
+#about .about-editorial-lead { font-size: 18px; font-weight: 700; line-height: 1.75; margin: 0 0 14px; }
+#about .about-editorial-body p { color: var(--muted); font-size: 14px; line-height: 1.9; margin: 0 0 12px; }
+#about .about-editorial-body p:last-child { margin-bottom: 0; }
+#about .about-editorial-signature { font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: 18px; line-height: 1.7; letter-spacing: .04em; margin-top: 18px; padding-left: 15px; border-left: 2px solid var(--blue); }
+#about .about-driving-visual { min-width: 0; width: 100%; margin: 0; }
+#about .about-image-slot {
+  width: 100%; aspect-ratio: 3 / 2;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 13px; padding: 24px;
+  background: linear-gradient(145deg, #f5f8fc, #e8f0fa);
+  border: 1px solid #d5e1ef;
+  color: #486889;
+}
+#about .about-image-slot svg { display: block; width: 48px; height: 40px; margin-bottom: 4px; color: #7292b4; }
+#about .about-image-brand { font: 600 10px/1.6 Arial, sans-serif; letter-spacing: .2em; }
+#about .about-image-slot p { font-size: 13px; line-height: 1.8; }
+#about .about-driving-visual > img { display: block; width: 100%; height: auto; object-fit: contain; }
+#about .about-driving-visual figcaption { display: flex; justify-content: space-between; gap: 12px; padding-top: 12px; font: 9px/1.5 Arial, sans-serif; letter-spacing: .12em; color: #52657a; }
+@media (min-width: 761px) and (max-height: 650px) {
+  #about.section { padding-top: 22px; padding-bottom: 26px; }
+  #about .section-label { margin-bottom: 18px; }
+  #about h2 { font-size: clamp(28px, 2.5vw, 34px); line-height: 1.4; margin-bottom: 14px; }
+  #about .about-editorial-lead { margin-bottom: 12px; }
+  #about .about-editorial-signature { margin-top: 14px; }
+}
+@media (max-width: 760px) {
+  #about.section { padding-top: 34px; padding-bottom: 36px; }
+  #about .about-editorial-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  #about .section-label { margin-bottom: 24px; }
+  #about h2 { font-size: clamp(25px, 6.4vw, 32px); line-height: 1.5; margin-bottom: 20px; }
+  #about .about-editorial-lead { font-size: 18px; line-height: 1.8; }
+  #about .about-editorial-body p { font-size: 14px; line-height: 2; margin-bottom: 16px; }
+  #about .about-editorial-signature { font-size: 17px; margin-top: 20px; }
+  #about .about-image-slot { padding: 20px; }
+  #about .about-driving-visual figcaption { font-size: 8px; letter-spacing: .08em; }
+}
+
+</style>
+<style id="about-fullscreen-layout">
+/* Only ABOUT US fills the desktop viewport. Mobile keeps its natural flow. */
+@media (min-width: 761px) {
+  #about.section {
+    box-sizing: border-box;
+    min-height: 100vh;
+    min-height: 100svh;
+    height: auto;
+    padding-top: 0;
+    padding-bottom: clamp(22px, 4svh, 36px);
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    row-gap: clamp(20px, 3.5svh, 30px);
+    /* The header is not sticky; cancel the existing 96px anchor offset here only. */
+    scroll-margin-top: -96px;
+  }
+  #about .section-label {
+    width: 100%;
+    padding-top: 14px;
+    margin: 0;
+    align-self: start;
+  }
+  #about .about-editorial-layout {
+    width: 100%;
+    align-self: center;
+    align-items: center;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: clamp(30px, 4vw, 64px);
+  }
+  #about h2 {
+    font-size: clamp(30px, 2.85vw, 42px);
+    line-height: 1.4;
+    margin-bottom: clamp(18px, 3svh, 26px);
+  }
+  #about .about-editorial-lead {
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+  #about .about-editorial-body p {
+    font-size: clamp(15px, 2.5svh, 16px);
+    line-height: 1.9;
+    margin-bottom: 16px;
+  }
+  #about .about-editorial-body p:last-child { margin-bottom: 0; }
+  #about .about-editorial-signature {
+    font-size: 20px;
+    line-height: 1.7;
+    margin-top: 22px;
+  }
+  #about .about-image-slot {
+    aspect-ratio: auto;
+    height: clamp(280px, 70svh, 620px);
+    padding: 28px;
+  }
+  #about .about-image-slot svg { width: 56px; height: 46px; }
+  #about .about-image-brand { font-size: 11px; }
+  #about .about-image-slot p { font-size: 14px; }
+}
+@media (min-width: 761px) and (max-width: 1000px) {
+  #about .about-editorial-layout { gap: 26px; }
+  #about h2 { font-size: 28px; margin-bottom: 16px; }
+  #about .about-editorial-lead { font-size: 18px; margin-bottom: 14px; }
+  #about .about-editorial-body p { font-size: 14px; line-height: 1.85; margin-bottom: 14px; }
+  #about .about-editorial-signature { font-size: 18px; margin-top: 16px; }
+  #about .about-image-slot { height: clamp(260px, 65svh, 540px); }
+}
+@media (min-width: 761px) and (max-height: 560px) {
+  #about.section { padding-bottom: 20px; row-gap: 16px; }
+  #about h2 { font-size: 28px; margin-bottom: 14px; }
+  #about .about-editorial-lead { font-size: 18px; margin-bottom: 12px; }
+  #about .about-editorial-body p { font-size: 14px; line-height: 1.8; margin-bottom: 12px; }
+  #about .about-editorial-signature { font-size: 18px; margin-top: 14px; }
+  #about .about-image-slot { height: 65svh; }
+}
+
+</style>
+<style id="about-driving-photo">
+/* The image determines its own frame height at its original 4:3 ratio. */
+#about .about-image-slot { padding: 0; display: block; height: auto; min-height: 0; aspect-ratio: auto; background: transparent; border: 0; }
+#about .about-image-slot > img { display: block; width: 100%; height: auto; min-width: 0; min-height: 0; object-fit: contain; object-position: center; }
+</style>
+<style id="services-horizontal-cards">
+/* Services only. Existing illustrations, names and descriptions are retained. */
+#services .service-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 22px;
+  width: 100%;
+}
+#services .service-row {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  min-width: 0;
+  height: 100%;
+  padding: 24px;
+  border: 1px solid #cfdef0;
+  border-radius: 5px;
+  background: linear-gradient(145deg, #f5f9ff, #e7f0fb);
+}
+#services .service-row::before {
+  content: "";
+  position: absolute;
+  top: -1px; left: 24px;
+  width: 38px; height: 3px;
+  background: var(--blue);
+}
+#services .service-number {
+  position: absolute;
+  top: 22px; right: 24px;
+  padding: 0;
+  font: italic 20px/1.3 Georgia, serif;
+}
+#services .service-visual {
+  width: 100px; height: 74px;
+  flex: 0 0 auto;
+  margin: 0 0 14px;
+  background: #fff;
+  border: 1px solid #dce6f4;
+  border-radius: 3px;
+}
+#services .service-visual::after { display: none; }
+#services .service-visual svg { width: 92px; height: 68px; max-height: none; }
+#services .service-name { margin-bottom: 14px; width: 100%; }
+#services .service-name > span { font-size: 10px; line-height: 1.6; letter-spacing: .1em; }
+#services .service-name h3 { font-size: 23px; line-height: 1.5; margin-top: 5px; }
+#services .service-row p { margin: 0; font-size: 15px; line-height: 1.85; }
+#services .service-note { width: 100%; margin: 0 auto; font-size: 11px; line-height: 1.8; }
+@media (min-width: 761px) {
+  #services.section {
+    min-height: 100vh;
+    min-height: 100svh;
+    height: auto;
+    padding-top: 0;
+    padding-bottom: clamp(20px, 3svh, 28px);
+    display: grid;
+    grid-template-rows: max-content max-content minmax(min-content, 1fr) max-content;
+    row-gap: clamp(16px, 3svh, 24px);
+    scroll-margin-top: -96px;
+  }
+  #services .section-label { width: 100%; padding-top: 12px; margin: 0 auto; }
+  #services .section-heading { width: 100%; margin: 0 auto; gap: 24px; }
+  #services h2 { font-size: clamp(28px, 4.8svh, 38px); line-height: 1.35; }
+  #services .section-heading > p { font-size: 14px; line-height: 1.8; padding-bottom: 0; }
+  #services .service-row { padding-top: clamp(20px, 3.5svh, 30px); padding-bottom: clamp(20px, 3.5svh, 30px); }
+}
+@media (min-width: 761px) and (max-width: 1050px) {
+  #services .service-list { gap: 16px; }
+  #services .service-row { padding-left: 18px; padding-right: 18px; }
+  #services .service-row::before { left: 18px; }
+  #services .service-number { right: 18px; font-size: 18px; }
+  #services .service-name > span { font-size: 9px; letter-spacing: .05em; }
+  #services .service-name h3 { font-size: 20px; }
+  #services .service-row p { font-size: 14px; }
+  #services .section-heading > p { font-size: 13px; }
+}
+@media (min-width: 761px) and (max-height: 600px) {
+  #services.section { row-gap: 14px; padding-bottom: 18px; }
+  #services .service-row { padding-top: 18px; padding-bottom: 18px; }
+  #services .service-visual { height: 62px; width: 86px; margin-bottom: 12px; }
+  #services .service-visual svg { width: 80px; height: 58px; }
+  #services .service-name { margin-bottom: 12px; }
+  #services .service-name h3 { font-size: 21px; }
+  #services .service-row p { font-size: 14px; line-height: 1.8; }
+}
+@media (max-width: 760px) {
+  #services.section { display: block; height: auto; min-height: 0; padding-top: 36px; padding-bottom: 36px; }
+  #services .service-list { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  #services .service-row { height: auto; padding: 24px; }
+  #services .service-number { top: 24px; right: 24px; }
+  #services .service-visual { width: 100px; height: 74px; }
+  #services .service-name h3 { font-size: 23px; }
+  #services .service-row p { font-size: 14px; line-height: 1.9; }
+  #services .service-note { margin-top: 20px; }
+}
+
+</style>
+<style id="fleet-desktop-screen">
+/* Desktop only; all rules are scoped to the navy vehicle section. */
+@media (min-width: 761px) {
+  .fleet {
+    min-height: calc(100vh + 4px);
+    min-height: calc(100dvh + 4px);
+    height: auto;
+    padding-top: clamp(32px, 6svh, 56px);
+    padding-bottom: clamp(32px, 6svh, 56px);
+    display: grid;
+    align-items: center;
+  }
+  .fleet > .fleet-inner {
+    width: 100%;
+    grid-template-columns: minmax(250px, .8fr) minmax(0, 2fr);
+    gap: clamp(32px, 4vw, 64px);
+    align-items: center;
+  }
+  .fleet .fleet-copy { min-width: 0; }
+  .fleet .eyebrow { font-size: 10px; line-height: 1.7; }
+  .fleet h2 { font-size: clamp(30px, 3.1vw, 42px); line-height: 1.5; margin: 24px 0; }
+  .fleet .fleet-copy p:not(.eyebrow) { font-size: 14px; line-height: 2; }
+  .fleet .fleet-line { width: 56px; margin-top: 30px; }
+  .fleet figure { width: 100%; min-width: 0; margin: 0; }
+  .fleet figure img { display: block; width: 100%; height: auto; aspect-ratio: 780 / 375; object-fit: contain; }
+  .fleet figcaption { font-size: 9px; line-height: 1.7; margin-top: 14px; }
+}
+@media (min-width: 761px) and (max-width: 1000px) {
+  .fleet > .fleet-inner { grid-template-columns: minmax(220px, .85fr) minmax(0, 1.8fr); gap: 28px; }
+  .fleet h2 { font-size: 30px; }
+  .fleet .fleet-copy p:not(.eyebrow) { font-size: 13px; }
+  .fleet figcaption { font-size: 8px; letter-spacing: .12em; }
+}
+@media (min-width: 761px) and (max-height: 500px) {
+  .fleet { padding-top: 24px; padding-bottom: 24px; }
+  .fleet h2 { font-size: 30px; margin: 16px 0; }
+  .fleet .fleet-line { margin-top: 18px; }
+}
+</style>
+<style id="commitment-desktop-screen">
+/* Keep the existing cards and content; distribute desktop space across the section. */
+@media (min-width: 761px) {
+  #strengths {
+    min-height: calc(100vh + 4px);
+    min-height: calc(100dvh + 4px);
+    height: auto;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: max-content max-content minmax(min-content, 1fr);
+    row-gap: clamp(20px, 4svh, 36px);
+    padding-top: clamp(20px, 3svh, 30px);
+    padding-bottom: clamp(24px, 4svh, 40px);
+    scroll-margin-top: -96px;
+  }
+  #strengths > .section-label { margin-bottom: 0; }
+  #strengths > .section-heading { margin-bottom: 0; }
+  #strengths h2 { font-size: clamp(30px, 5svh, 40px); line-height: 1.4; }
+  #strengths > .commitments { align-items: stretch; }
+  #strengths .commitments article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: clamp(24px, 4svh, 40px);
+    padding-bottom: clamp(24px, 4svh, 40px);
+  }
+  #strengths .commitments svg { flex-shrink: 0; margin-top: clamp(16px, 3svh, 28px); margin-bottom: clamp(16px, 3svh, 28px); }
+}
+@media (min-width: 761px) and (max-height: 540px) {
+  #strengths { row-gap: 16px; padding-top: 18px; padding-bottom: 20px; }
+  #strengths h2 { font-size: 28px; }
+  #strengths .commitments article { padding-top: 18px; padding-bottom: 20px; }
+  #strengths .commitments svg { margin-top: 12px; margin-bottom: 12px; }
+}
+</style>
+<style id="closing-screen-layout">
+/* Only the closing contact/footer composition. */
+.lp-ending .truck-lane { position: relative; height: 90px; overflow: hidden; border-top: 1px solid #e2eaf4; background: #f3f7fc; pointer-events: none; }
+.lp-ending .truck-runner { position: absolute; left: 100%; bottom: 4px; width: 240px; animation: shinrou-drive-left 8s linear infinite; }
+.lp-ending .truck-runner img { display: block; width: 100%; height: auto; border: 0; border-radius: 0; background: transparent; }
+@keyframes shinrou-drive-left {
+  0% { transform: translateX(0); }
+  75%, 100% { transform: translateX(calc(-100vw - 260px)); }
+}
+@media (min-width: 761px) {
+  .lp-ending { min-height: 100vh; min-height: 100dvh; display: grid; grid-template-rows: minmax(min-content, 1fr) max-content; background: var(--pale); }
+  .lp-ending #contact { padding-top: clamp(24px, 4vh, 44px); padding-bottom: clamp(24px, 4vh, 44px); align-items: center; gap: 7%; scroll-margin-top: -96px; }
+  .lp-ending .contact-intro { align-self: center; }
+  .lp-ending #contact h2 { font-size: clamp(32px, 5.8vh, 44px); line-height: 1.45; margin: 14px 0 18px; }
+  .lp-ending .contact-word { font-size: clamp(48px, 5.5vw, 78px); margin-top: 20px; color: #e1e8f1; }
+  .lp-ending .contact-panel { padding: clamp(22px, 3vh, 34px) clamp(24px, 3vw, 40px); }
+  .lp-ending .contact-panel h3 { font-size: clamp(20px, 2vw, 24px); margin: 12px 0; }
+  .lp-ending .contact-panel .button { margin-top: 20px; padding: 18px 24px; }
+  .lp-ending .contact-panel .demo-note { margin-top: 14px; }
+  .lp-ending footer { padding: 8px var(--pad) 0; }
+  .lp-ending .footer-top { padding-bottom: 8px; }
+  .lp-ending .footer-top .brand-jp { font-size: 25px; }
+  .lp-ending .footer-top .brand-en { font-size: 8px; margin-top: 4px; }
+  .lp-ending .footer-bottom { padding-top: 12px; padding-bottom: 8px; align-items: center; }
+  .lp-ending .truck-lane { margin-left: calc(-1 * var(--pad)); margin-right: calc(-1 * var(--pad)); }
+}
+@media (max-width: 760px), (prefers-reduced-motion: reduce) {
+  .lp-ending .truck-lane { display: none; }
+  .lp-ending .truck-runner { animation: none; }
+}
+
+</style>
+<link rel="stylesheet" href="mobile-portrait.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="header">
+    <a class="brand" href="#" aria-label="神狼運輸 トップへ"><span class="brand-jp">神狼運輸<span class="brand-dot">.</span></span><span class="brand-en">SHINROU TRANSPORT</span></a>
+    <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-controls="navigation" aria-expanded="false"><span></span><span></span></button>
+    <nav id="navigation" aria-label="メインナビゲーション">
+      <a href="#about">神狼運輸について</a><a href="#services">事業内容</a><a href="#strengths">私たちの強み</a><a class="nav-contact" href="#contact">お問い合わせ <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-top"><div><p class="eyebrow"><span></span> BEYOND THE DESTINATION</p><h1 id="hero-title">運ぶのは、<br>その先の<span class="blue">信頼。</span></h1></div><div class="hero-aside"><p>人と想いを、未来へつなぐ。</p><p>一つひとつの荷物に、誠実に。<br>神狼運輸は、物流の先にある<br>人とビジネスの可能性を見つめています。</p><a class="text-link" href="#services">私たちの輸送サービス <span aria-hidden="true">↗</span></a></div></div>
+      <figure class="hero-image"><img src="assets/truck-side.jpg" width="1774" height="505" alt="青空の下に停まる神狼運輸のトラック全景。荷台に疾走する狼と神狼運輸の文字が描かれている" fetchpriority="high"><figcaption><span>SHINROU TRANSPORT</span><span>PRECISION. PRIDE. PROGRESS.</span></figcaption></figure>
+      <div class="hero-bottom"><span>想いを背負い、次の道へ。</span><a href="#about">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></a></div>
+    </section>
+
+    <section class="about section" id="about" aria-labelledby="about-title">
+      <div class="section-label"><span>01 / ABOUT US</span><span>神狼運輸について</span></div>
+      <div class="about-editorial-layout">
+        <div class="about-editorial-text">
+          <h2 id="about-title">まっすぐに運ぶ。<br>まっすぐに、<span class="blue">向き合う。</span></h2>
+          <p class="about-editorial-lead">荷物の向こうに、待っている人がいる。</p>
+          <div class="about-editorial-body">
+            <p>運ぶものには、送り手の想いと、受け取る人の期待がある。だからこそ、私たちは一つひとつの輸送に誠実に向き合うことを大切にします。</p>
+            <p>狼が象徴する力強さと、仲間と歩む姿勢を胸に。安全への配慮、丁寧な対応、確かな連携を積み重ね、頼れる物流パートナーを目指します。</p>
+          </div>
+          <p class="about-editorial-signature">人と想いを、未来へつなぐ。</p>
+        </div>
+        <figure class="about-driving-visual">
+<div class="about-image-slot"><img src="assets/truck-highway-rear.png" width="1448" height="1086" alt="高速道路を走る神狼運輸のトラックを斜め後方から見た全景。側面と後部に狼のデザインと神狼運輸の社名が見える。" loading="lazy" decoding="async"></div>
+<figcaption><span>ON THE ROAD</span><span>SHINROU TRANSPORT</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="services section" id="services" aria-labelledby="services-title">
+      <div class="section-label"><span>02 / OUR SERVICES</span><span>事業内容</span></div>
+      <div class="section-heading"><h2 id="services-title">ビジネスの動きに、<br>最適な輸送を。</h2><p>荷物の特性や配送の目的に合わせて。<br>ご相談から、一緒に輸送の形を考えます。</p></div>
+      <div class="service-list">
+        <article class="service-row"><span class="service-number">01</span><div class="service-visual"><svg viewBox="0 0 120 88" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="illustration-fill" d="M19 27h54v34H19zM73 40h16l13 13v8H73z"/><path d="M19 27h54v34H19zM73 40h16l13 13v8H73M89 40v13h13M31 61h42M19 54h-7M12 44h-6"/><circle cx="34" cy="63" r="7"/><circle cx="87" cy="63" r="7"/><path d="m32 37 13-6 13 6v14l-13 6-13-6zM32 37l13 6 13-6M45 43v14M10 77h98"/><path class="illustration-accent" d="M22 18h30m7 0h12"/></svg></div><div class="service-name"><span>GENERAL TRANSPORT</span><h3>一般貨物輸送</h3></div><p>資材や製品など、事業を支える荷物の輸送。荷姿や取り扱い条件を確認し、目的に沿った運び方を考えます。</p></article>
+        <article class="service-row"><span class="service-number">02</span><div class="service-visual"><svg viewBox="0 0 120 88" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="illustration-fill" cx="19" cy="63" r="9"/><circle class="illustration-fill" cx="100" cy="22" r="9"/><circle cx="19" cy="63" r="4"/><path d="M28 63h44c16 0 18-15 18-24V22h4M100 13c-6 0-10 4-10 9 0 8 10 16 10 16s10-8 10-16c0-5-4-9-10-9z"/><circle cx="100" cy="22" r="3"/><path class="illustration-fill" d="M35 26h29v21H35zM64 34h10l7 8v5H64z"/><path d="M35 26h29v21H35zM64 34h10l7 8v5H64M74 34v8h7"/><circle cx="43" cy="49" r="4"/><circle cx="71" cy="49" r="4"/><path class="illustration-accent" d="M14 20h20m-26 9h19M103 59v12m-6-6h12"/></svg></div><div class="service-name"><span>CHARTER TRANSPORT</span><h3>チャーター便</h3></div><p>お客様の輸送計画に合わせた専用の運行。集荷からお届けまでの流れを整理し、柔軟な輸送を目指します。</p></article>
+        <article class="service-row"><span class="service-number">03</span><div class="service-visual"><svg viewBox="0 0 120 88" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M87 19a34 28 0 0 0-56-1M31 18v-9m0 9h10M28 68a34 28 0 0 0 56-1M84 67v10m0-10H74"/><circle class="illustration-fill" cx="17" cy="43" r="7"/><circle class="illustration-fill" cx="102" cy="43" r="7"/><path class="illustration-fill" d="M40 29h39v30H40z"/><path d="M40 29h39v30H40zM40 37h39M49 25v9m21-9v9M48 44h6m7 0h6m-19 7h6m7 0h6"/><path class="illustration-accent" d="M14 43h6m-3-3v6M99 43h6"/></svg></div><div class="service-name"><span>REGULAR DELIVERY</span><h3>定期配送</h3></div><p>日々の物流を支える継続的な配送。配送先やスケジュールを共有し、事業の流れに寄り添う計画を考えます。</p></article>
+      </div><p class="service-note">※ 掲載サービスは架空企業のコンセプトです。実際の輸送受付は行っていません。</p>
+    </section>
+
+    <section class="fleet" aria-label="神狼運輸の車両デザイン"><div class="fleet-inner"><div class="fleet-copy"><p class="eyebrow">THE SPIRIT OF SHINROU</p><h2>誇りをまとい、<br>道を拓く。</h2><p>力強く、しなやかに。<br>駆ける狼に、私たちの姿勢を重ねて。</p><span class="fleet-line" aria-hidden="true"></span></div><figure><img src="assets/truck-front.jpg" width="780" height="375" loading="lazy" alt="前方斜めから見た神狼運輸のトラック。キャビンから荷台後端までの車体全体と狼の姿が見える"><figcaption>VEHICLE DESIGN / SHINROU TRANSPORT</figcaption></figure></div></section>
+
+    <section class="strengths section" id="strengths" aria-labelledby="strengths-title">
+      <div class="section-label"><span>03 / OUR COMMITMENT</span><span>私たちの強み</span></div>
+      <div class="section-heading"><h2 id="strengths-title">信頼は、<br>日々の姿勢から。</h2><p>大切にしたいのは、当たり前を丁寧に続けること。<br>神狼運輸が掲げる、仕事への約束です。</p></div>
+      <div class="commitments"><article><span class="commit-index">01 — SAFETY</span><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M24 5 40 12v12c0 10-16 19-16 19S8 34 8 24V12Z"/><path d="m17 24 5 5 10-11"/></svg><h3>安全を、すべての起点に。</h3><p>無理のない計画と、基本の確認を大切に。一つひとつの判断に、安全への意識を持ち続けます。</p></article><article><span class="commit-index">02 — CARE</span><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m7 15 17-9 17 9v20l-17 9-17-9Z M7 15l17 9 17-9M24 24v20M15 11l17 9v9"/></svg><h3>一つの荷物に、心を配る。</h3><p>お預かりするものの特性を理解し、丁寧に扱う。送り手と受け手、双方の想いを尊重します。</p></article><article><span class="commit-index">03 — PARTNERSHIP</span><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="16" cy="14" r="6"/><circle cx="34" cy="17" r="5"/><path d="M4 40v-7a12 12 0 0 1 24 0v7M29 27a10 10 0 0 1 15 9v4M10 40h12"/></svg><h3>対話から、答えをつくる。</h3><p>ご要望を聞き、状況を共有し、ともに考える。顔の見えるコミュニケーションを大切にします。</p></article></div>
+    </section>
+
+    </main>
+  <div class="lp-ending"><section class="contact" id="contact" aria-labelledby="contact-title"><div class="contact-intro"><p class="eyebrow">LET’S MOVE FORWARD</p><h2 id="contact-title">次の一歩を、<br>ともに。</h2><p>輸送のお悩みや、ご相談をお聞かせください。<br>まずはお話を伺うことから。</p><span class="contact-word" aria-hidden="true">CONTACT</span></div><div class="contact-panel"><span class="demo-label">SAMPLE / お問い合わせデモ</span><h3>輸送について相談する</h3><p>ご相談内容に合わせて、<br>以下のボタンからフォームをご覧いただけます。</p><button class="button" type="button" id="open-contact">お問い合わせフォーム <span aria-hidden="true">↗</span></button><p class="demo-note">制作実績用の架空サイトです。<br>フォームに入力しても外部へ送信されません。</p></div></section>
+<footer><div class="footer-top"><a class="brand" href="#"><span class="brand-jp">神狼運輸<span class="brand-dot">.</span></span><span class="brand-en">SHINROU TRANSPORT</span></a><a class="back-top" href="#">PAGE TOP <span aria-hidden="true">↑</span></a></div><div class="footer-bottom"><p>本サイトは架空の運送会社を題材にした、Pidam Galleryの制作サンプルです。<br>実在する企業・団体とは関係ありません。</p><span>DESIGNED BY PIDAM GALLERY</span></div><div class="truck-lane" aria-hidden="true"><div class="truck-runner"><img src="assets/truck-footer-transparent.png" width="2170" height="725" alt="" decoding="async"></div></div></footer></div>
+  <dialog id="contact-dialog" aria-labelledby="dialog-title"><div class="dialog-heading"><span class="eyebrow">CONTACT DEMO</span><button class="dialog-close" type="button" aria-label="フォームを閉じる">×</button></div><h2 id="dialog-title">お問い合わせ</h2><p class="dialog-note">デザイン確認用です。個人情報は入力せず、仮の内容でお試しください。入力内容は保存・送信されません。</p><form id="contact-form"><label>お名前 <span>必須</span><input name="name" required autocomplete="off" placeholder="例：サンプル 太郎" maxlength="80"></label><label>メールアドレス <span>必須</span><input type="email" name="email" required autocomplete="off" placeholder="sample@example.com" maxlength="150"></label><label>ご相談内容 <span>必須</span><textarea name="message" required rows="4" placeholder="ご相談内容のサンプルをご入力ください。" maxlength="2000"></textarea></label><button class="button" type="submit">入力内容を確認する（デモ） <span aria-hidden="true">→</span></button><p class="form-status" role="status" tabindex="-1"></p></form></dialog>
+</body>
+</html>

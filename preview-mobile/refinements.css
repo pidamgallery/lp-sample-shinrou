@@ -1,0 +1,84 @@
+@charset "UTF-8";
+/* Scoped visual refinements. Original truck images and fleet layout are retained. */
+:root { --muted: #46576b; }
+
+.about { position: relative; isolation: isolate; }
+.about::before { content: ""; position: absolute; z-index: -1; inset: 125px 0 36px; background: linear-gradient(110deg, #edf4fc 0%, #f5f8fc 36%, #fff 73%); pointer-events: none; }
+.about-layout { gap: 9%; align-items: center; }
+.about-heading { min-width: 0; }
+.about-road { margin-top: 28px; max-width: 430px; color: #3378c4; }
+.about-road svg { display: block; width: 100%; height: auto; overflow: hidden; }
+.about-road .road-edge { stroke: #bfd0e4; stroke-width: 1; }
+.about-road .road-center { stroke: #adc3dd; stroke-width: 1; stroke-dasharray: 7 9; }
+.about-road .road-route { stroke: #5a91cd; stroke-width: 1.5; }
+.about-road circle { fill: #1765cd; stroke: #fff; stroke-width: 2; }
+.about-road .road-speed { stroke: #bfd0e4; stroke-width: 1; }
+.about-road > span { display: block; margin-top: 5px; font: 8px/1.7 Arial, sans-serif; letter-spacing: .15em; color: #46678f; }
+.about-copy { padding: 16px 0; }
+.about-copy .signature { padding-left: 18px; border-left: 2px solid #1765cd; }
+
+.service-row { grid-template-columns: 34px 112px minmax(180px, 1fr) minmax(240px, 1.2fr); gap: 26px; padding: 30px 0; }
+.service-number { align-self: center; padding: 0; }
+.service-visual { color: #235c9a; width: 112px; height: 94px; display: grid; place-items: center; background: #e7eff9; border-radius: 3px; position: relative; }
+.service-visual::after { content: ""; position: absolute; right: 0; bottom: 0; width: 18px; height: 2px; background: #6b9dd5; }
+.service-visual svg { display: block; width: 104px; height: auto; }
+.service-visual .illustration-fill { fill: #f7fbff; }
+.service-visual .illustration-accent { stroke: #6d97c6; }
+.service-row:nth-child(2) .service-visual { background: #eaf2f6; }
+.service-row:nth-child(3) .service-visual { background: #e3eefb; }
+.service-name > span { color: #4d6077; }
+.service-row p { font-size: 14px; }
+
+.commitments { gap: 22px; }
+.commitments article { min-width: 0; position: relative; padding: 28px 26px 30px; border: 1px solid #dbe6f4; background: linear-gradient(145deg, #f2f7fd, #eaf2fc); border-radius: 4px; }
+.commitments article::before { content: ""; position: absolute; left: 26px; top: -1px; width: 36px; height: 3px; background: #1765cd; }
+.commitments article:nth-child(2) { background: linear-gradient(145deg, #f6f9fe, #edf4fc); }
+.commitments svg { width: 66px; height: 66px; padding: 10px; margin: 26px 0 22px; background: #fff; border: 1px solid #dce7f5; border-radius: 50%; }
+.commitments h3 { font-size: clamp(16px, 1.45vw, 20px); letter-spacing: -.01em; }
+.commitments p { font-size: 14px; }
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .service-row { grid-template-columns: 26px 92px minmax(145px, 1fr) minmax(180px, 1.2fr); gap: 18px; }
+  .service-visual { width: 92px; height: 84px; }
+  .service-visual svg { width: 88px; }
+  .service-name h3 { font-size: 21px; }
+  .service-name > span { font-size: 8px; }
+  .service-row p { font-size: 13px; }
+  .commitments { gap: 15px; }
+  .commitments article { padding: 25px 18px; }
+  .commitments article::before { left: 18px; }
+  .commitments p { font-size: 13px; }
+}
+
+@media (max-width: 760px) {
+  .about::before { inset: 104px 0 28px; background: linear-gradient(145deg, #edf4fc 0%, #f8fafd 50%, #fff 83%); }
+  .about-layout { gap: 25px; }
+  .about-road { margin-top: 16px; max-width: 330px; }
+  .about-road svg { max-height: 90px; }
+  .about-road > span { font-size: 7px; margin-top: 0; }
+  .about-copy { padding: 0; }
+  .about-copy > p:not(.lead) { font-size: 14px; }
+  .service-row { grid-template-columns: 22px 76px minmax(0, 1fr); gap: 15px 14px; padding: 25px 0; }
+  .service-number { grid-column: 1; grid-row: 1; align-self: center; font-size: 16px; }
+  .service-visual { grid-column: 2; grid-row: 1; width: 76px; height: 74px; }
+  .service-visual svg { width: 72px; }
+  .service-name { grid-column: 3; grid-row: 1; min-width: 0; }
+  .service-name > span { font-size: 8px; letter-spacing: .06em; overflow-wrap: anywhere; }
+  .service-name h3 { font-size: 20px; margin-top: 6px; }
+  .service-row p { grid-column: 2 / -1; grid-row: 2; font-size: 13px; }
+  .commitments { gap: 18px; }
+  .commitments article { grid-template-columns: 56px minmax(0, 1fr); gap: 0 16px; padding: 23px 20px 25px; }
+  .commitments article::before { left: 20px; }
+  .commit-index { margin-bottom: 20px; }
+  .commitments svg { grid-column: 1; grid-row: 2 / 4; width: 56px; height: 56px; margin: 0; padding: 8px; }
+  .commitments h3 { grid-column: 2; grid-row: 2; font-size: 17px; line-height: 1.7; }
+  .commitments p { grid-column: 2; grid-row: 3; font-size: 13px; }
+}
+@media (max-width: 360px) {
+  .service-row { grid-template-columns: 18px 64px minmax(0, 1fr); column-gap: 11px; }
+  .service-visual { width: 64px; height: 68px; }
+  .service-visual svg { width: 62px; }
+  .service-name h3 { font-size: 18px; }
+  .commitments article { padding-left: 16px; padding-right: 16px; column-gap: 12px; }
+  .commitments h3 { font-size: 16px; }
+}
