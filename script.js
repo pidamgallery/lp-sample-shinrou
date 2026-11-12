@@ -39,6 +39,6 @@ dialog.addEventListener('close', () => {
 });
 form.addEventListener('submit', event => {
   event.preventDefault();
-  status.textContent = '入力内容を確認しました。これは制作サンプルのため、送信は行われていません。内容はフォームを閉じると消去されます。';
+  status.textContent = '入力内容を確認しました。\nこれは制作サンプルのため、送信は行われていません。\n内容はフォームを閉じると消去されます。';
   status.focus();
 });

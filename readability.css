@@ -1,0 +1,185 @@
+/* Let the opening screen grow with its copy and caption. */
+.hero {
+  height: auto;
+  min-height: calc(100svh - var(--opening-header));
+  grid-template-rows: max-content minmax(clamp(120px, 24vw, 260px), 1fr) max-content;
+}
+
+.hero .hero-image {
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+
+.hero .hero-image figcaption,
+#about .about-driving-visual figcaption,
+.hero .hero-bottom,
+.section-label,
+.footer-bottom {
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+.hero .hero-image figcaption {
+  height: auto;
+  padding: 10px 16px;
+}
+
+.hero .hero-image figcaption span:last-child {
+  font-size: inherit;
+}
+
+.hero .hero-aside > p:first-child,
+.hero .hero-aside > p:nth-child(2),
+#about .about-editorial-body p,
+#services .section-heading > p,
+#services .service-row p,
+.fleet .fleet-copy p:not(.eyebrow),
+#strengths .section-heading > p,
+#strengths .commitments p,
+.contact-intro > p:not(.eyebrow),
+.contact-panel > p:not(.demo-note) {
+  font-size: 17px;
+  line-height: 1.8;
+  line-break: strict;
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+
+.hero .text-link,
+.contact-panel .button,
+#contact-dialog input,
+#contact-dialog textarea,
+#contact-dialog .button {
+  font-size: 16px;
+}
+
+.section-label span:last-child {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.hero .eyebrow,
+.hero .hero-image figcaption,
+.hero .hero-bottom,
+.hero .hero-bottom a,
+.section-label span:first-child,
+#about .about-driving-visual figcaption,
+#services .service-name > span,
+#services .service-note,
+.fleet .eyebrow,
+.fleet figcaption,
+#strengths .commit-index,
+.contact-intro .eyebrow,
+.demo-label,
+.contact-panel .demo-note,
+.footer-bottom p,
+.footer-bottom > span,
+.back-top,
+#contact-dialog .eyebrow,
+#contact-dialog .dialog-note,
+#contact-dialog label,
+#contact-dialog label > span,
+#contact-dialog .form-status {
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: .04em;
+}
+
+.hero .hero-bottom > span {
+  font-size: 15px;
+}
+
+#services .service-name > span {
+  display: block;
+  overflow-wrap: normal;
+}
+
+#services .service-row {
+  height: auto;
+  justify-content: flex-start;
+}
+
+#strengths .commitments article {
+  align-content: start;
+  justify-content: flex-start;
+}
+
+.contact-panel .demo-note,
+.footer-bottom p {
+  line-height: 1.75;
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+
+.footer-bottom > span {
+  white-space: normal;
+}
+
+@media (min-width: 761px) {
+  #services.section,
+  #strengths.section {
+    min-height: 0;
+    padding-block: clamp(32px, 5svh, 64px);
+  }
+}
+
+@media (max-width: 1000px) {
+  #services .service-row p,
+  #strengths .commitments p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    display: block;
+    min-height: 0;
+  }
+
+  .hero .hero-image {
+    display: block;
+    height: auto;
+  }
+
+  .hero .hero-image img {
+    height: auto;
+    max-height: none;
+    aspect-ratio: 1774 / 505;
+  }
+
+  .hero .hero-image figcaption {
+    padding-inline: 12px;
+  }
+
+  .hero .hero-bottom a {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  #services .service-list,
+  #strengths .commitments {
+    gap: 16px;
+  }
+
+  .footer-top {
+    flex-wrap: wrap;
+    gap: 12px 16px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 760px) and (orientation: portrait) {
+  #services .service-name {
+    margin-top: 0;
+  }
+
+  #services .service-name > span {
+    padding-inline-end: 24px;
+  }
+
+  #strengths .commitments p {
+    margin-top: 14px;
+  }
+}
