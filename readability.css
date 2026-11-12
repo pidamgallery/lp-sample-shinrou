@@ -192,7 +192,7 @@
   }
 
   .hero .hero-top {
-    padding-bottom: 28px;
+    padding-bottom: 20px;
   }
 
   .hero .hero-image {
@@ -209,12 +209,26 @@
   #about.section {
     min-height: 0;
     grid-template-rows: auto auto;
-    row-gap: 24px;
-    padding-block: 36px 44px;
+    row-gap: 20px;
+    padding-block: 28px 32px;
   }
 
   .fleet {
     min-height: 0;
-    padding-block: 48px;
+    padding-block: 36px;
+  }
+
+  #services.section,
+  #strengths.section {
+    padding-block: 32px;
+  }
+
+  .lp-ending {
+    min-height: 0;
+    grid-template-rows: auto auto;
+  }
+
+  .lp-ending #contact {
+    padding-block: 36px;
   }
 }
